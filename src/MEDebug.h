@@ -11,6 +11,8 @@
 #define _DEBUG
 #endif
 
+#include "MEBaseTypes.h"
+
 namespace MakeEngine {
     void Log(const MEString&);
     void LogTest(const MEString&, bool);

@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -D ME_DEBUG_MODE")
 
-include_directories(./include ./src ./src/MESystem)
+include_directories(./include ./src ./src/MESystem ./src/MEApplication)
 
 # here
 add_subdirectory(test_bin)

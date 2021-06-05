@@ -3,6 +3,7 @@
 //
 
 #include "METime.h"
+#include "MEBaseTypes.h"
 #include <iostream>
 using std::cout, std::endl;
 namespace MakeEngine {

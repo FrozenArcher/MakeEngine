@@ -5,6 +5,7 @@
 #include "MakeEngine.h"
 using namespace MakeEngine;
 
+#ifdef _DEBUG
 class A{
 public:
     A() = default;
@@ -16,12 +17,10 @@ public:
 int Add(int a, int b) {
     return a + b;
 }
-
 MEString Add5S(MEString s1, MEString s2, MEString s3, MEString s4, MEString s5) {
     return s1 + s2 + s3 + s4 + s5;
 }
-
-int main() {
+void tests() {
     DBG_Log("Hello from test_bin!");
 
     A a;
@@ -37,3 +36,25 @@ int main() {
                  e.Execute("aa", "bb", "cc", "dd", "ee"),
                  "aabbccddee");
 }
+#endif // _DEBUG
+
+
+#pragma clang diagnostic push    // cancel unused warning for argc, argv
+#pragma ide diagnostic ignored "UnusedParameter"
+int main(int argc, char* argv[]) {
+#ifdef _DEBUG
+    tests();
+#endif
+    MEWindow window{};
+    if (!window.Init()) {
+        return 1;
+    }
+    if (!window.Run()) {
+        return 1;
+    }
+    if (!window.Dispose()) {
+        return 1;
+    }
+    return 0;
+}
+#pragma clang diagnostic pop

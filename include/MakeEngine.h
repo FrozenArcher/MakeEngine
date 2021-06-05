@@ -7,4 +7,5 @@
 #include "METime.h"
 #include "MEDebug.h"
 #include "MEDelegate.h"
+#include "MEWindow.h"
 #endif //MAKEENGINE_MAKEENGINE_H
