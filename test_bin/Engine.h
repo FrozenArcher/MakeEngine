@@ -4,5 +4,5 @@
 
 #ifndef MAKEENGINE_ENGINE_H
 #define MAKEENGINE_ENGINE_H
-#include "../include/MakeEngine.h"
+#include "MakeEngine.h"
 #endif //MAKEENGINE_ENGINE_H

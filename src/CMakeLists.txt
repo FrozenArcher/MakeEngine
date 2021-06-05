@@ -7,6 +7,6 @@ set(LIB_SRC_DIR
         METime.h METime.cpp
 
         ${ME_INC}/MakeEngine.h
-        )
+        MESystem/MEDelegate.cpp MESystem/MEDelegate.h)
 
 add_library(MakeEngine SHARED ${LIB_SRC_DIR})

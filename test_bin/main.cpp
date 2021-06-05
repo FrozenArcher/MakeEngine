@@ -3,6 +3,12 @@
 //
 
 #include "Engine.h"
+using namespace MakeEngine;
+
 int main() {
     DBG_Log("Hello from test_bin!");
+
+    auto* pDelegate = new MEDelegate("YHY");
+    pDelegate->Hello();
+    delete pDelegate;
 }

@@ -4,6 +4,7 @@
 
 #ifndef MAKEENGINE_MAKEENGINE_H
 #define MAKEENGINE_MAKEENGINE_H
-#include "../src/METime.h"
-#include "../src/MEDebug.h"
+#include "METime.h"
+#include "MEDebug.h"
+#include "MEDelegate.h"
 #endif //MAKEENGINE_MAKEENGINE_H
