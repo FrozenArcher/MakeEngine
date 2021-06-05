@@ -9,7 +9,7 @@
 #define MAKEENGINE_MEDELEGATE_H
 
 namespace MakeEngine {
-    template<typename TResult, typename PR1, typename PR2>
+    template<typename TResult, typename... TArgs>
     class MEDelegate {
     public:
         MEDelegate() {
@@ -19,18 +19,18 @@ namespace MakeEngine {
         ~MEDelegate() = default;
 
     protected:
-        typedef TResult(*FNew)(void *, PR1, PR2);
+        typedef TResult(*FNew)(void *, TArgs...);
 
-        template<TResult(*Fn)(PR1, PR2)>
+        template<TResult(*Fn)(TArgs...)>
         static TResult
-        FunStub([[maybe_unused]] void * p, PR1 a1, PR2 a2) {
-            return (Fn)(a1, a2);
+        FunStub([[maybe_unused]] void * p, TArgs ...args) {
+            return (Fn)(args...);
         }
 
-        template<class C, TResult(C::*Cf)(PR1, PR2)>
-        static TResult MethodStub(void * p, PR1 a1, PR2 a2) {
+        template<class C, TResult(C::*Cf)(TArgs...)>
+        static TResult MethodStub(void * p, TArgs ...args) {
             C* ap = (C *)p;
-            return (ap->*Cf)(a1, a2);
+            return (ap->*Cf)(args...);
         }
 
         static MEDelegate Create(void * p, FNew f) {
@@ -41,18 +41,18 @@ namespace MakeEngine {
         }
 
     public:
-        template<class C, TResult(C::*Cf)(PR1, PR2)>
+        template<class C, TResult(C::*Cf)(TArgs...)>
         static MEDelegate FromMethod(C * p) {
             return Create(p, &MethodStub<C, Cf>);
         }
 
-        template<TResult(*Fn)(PR1, PR2)>
+        template<TResult(*Fn)(TArgs...)>
         static MEDelegate FromFunc() {
             return Create(nullptr, &FunStub<Fn>);
         }
 
-        TResult Execute(PR1 a1, PR2 a2) {
-            return (*_f) (_p, a1, a2);
+        TResult Execute(TArgs ...args) {
+            return (*_f) (_p, args...);
         }
 
     protected:
@@ -60,6 +60,4 @@ namespace MakeEngine {
         FNew _f;
     };
 }
-
-
 #endif //MAKEENGINE_MEDELEGATE_H
