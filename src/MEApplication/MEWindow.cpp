@@ -24,11 +24,7 @@ namespace MakeEngine {
             return false;
         }
 
-        _pWindow = SDL_CreateWindow("Demo",
-            SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-            800, 600, SDL_WINDOW_ALLOW_HIGHDPI);
-        if (_pWindow == nullptr) {
-            DBG_Log(SDL_GetError());
+        if (!InitWindow()) {
             return false;
         }
 
@@ -38,6 +34,24 @@ namespace MakeEngine {
     bool MEWindow::Dispose() {
         SDL_DestroyWindow(_pWindow);
         SDL_Quit();
+        return true;
+    }
+
+    bool MEWindow::InitWindow() {
+        _pWindow = SDL_CreateWindow("Demo",
+             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+             800, 600, SDL_WINDOW_SHOWN);
+        if (_pWindow == nullptr) {
+            DBG_Log(SDL_GetError());
+            return false;
+        }
+        return true;
+    }
+
+    bool MEWindow::InitGraphics() {
+        _pRenderer = SDL_CreateRenderer(_pWindow, -1,
+             SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
         return true;
     }
 }
