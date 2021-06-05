@@ -3,6 +3,8 @@ project(TestBin)
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -D ME_DEBUG_MODE")
+
 # find MakeEngine lib
 set(INC_DIR ../include)
 set(LIB_DIR ../cmake-build-debug)

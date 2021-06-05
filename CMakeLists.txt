@@ -3,7 +3,9 @@ project(MakeEngine)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(MakeEngine SHARED src/library.cpp include/library.h)
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -D ME_DEBUG_MODE")
+
+add_library(MakeEngine SHARED src/library.cpp include/library.h include/debug.h include/MakeEngine.h src/METime.h src/METime.cpp src/MEBaseTypes.h src/MEGlobal.h)
 
 INCLUDE(FindPkgConfig)
 
