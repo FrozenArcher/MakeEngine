@@ -1,0 +1,6 @@
+#ifndef MAKEENGINE_LIBRARY_H
+#define MAKEENGINE_LIBRARY_H
+
+void hello();
+
+#endif //MAKEENGINE_LIBRARY_H
