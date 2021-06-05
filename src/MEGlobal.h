@@ -4,6 +4,4 @@
 
 #ifndef MAKEENGINE_MEGLOBAL_H
 #define MAKEENGINE_MEGLOBAL_H
-#include "MEBaseTypes.h"
-using namespace MakeEngine;
 #endif //MAKEENGINE_MEGLOBAL_H

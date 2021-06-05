@@ -4,10 +4,11 @@
 #include <ctime>
 
 #include "METime.h"
+namespace MakeEngine{
+    MEString GetTimeNowStr() {
+        static time_t _theTime;
 
-MEString MakeEngine::GetTimeNowStr() {
-    static time_t _theTime;
-
-    time(&_theTime);
-    return ctime(&_theTime);
+        time(&_theTime);
+        return ctime(&_theTime);
+    }
 }
