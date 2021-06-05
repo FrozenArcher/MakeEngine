@@ -13,6 +13,7 @@ add_subdirectory(src)
 
 target_link_libraries(TestMakeEngine MakeEngine)
 
+# below: sdl configures
 INCLUDE(FindPkgConfig)
 
 pkg_check_modules(SDL2 REQUIRED sdl2)

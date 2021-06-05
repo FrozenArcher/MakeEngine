@@ -3,13 +3,7 @@
 //
 
 #include "MEDelegate.h"
-#include "MEDebug.h"
 
 namespace MakeEngine {
-    MEDelegate::MEDelegate(MEString name) {
-        _name = std::move(name);
-    }
-    void MEDelegate::Hello() {
-        Log(_name);
-    }
+
 }
