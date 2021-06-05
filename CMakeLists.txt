@@ -5,8 +5,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -D ME_DEBUG_MODE")
 
-add_library(MakeEngine SHARED src/library.cpp include/library.h src/debug.h include/MakeEngine.h src/METime.h src/METime.cpp src/MEBaseTypes.h src/MEGlobal.h src/debug.cpp)
-add_executable(TestMakeEngine test_bin/main.cpp test_bin/Engine.h)
+# here
+add_subdirectory(test_bin)
+add_subdirectory(src)
+
+# add_library(MakeEngine SHARED src/MEDebug.h include/MakeEngine.h src/METime.h src/METime.cpp src/MEBaseTypes.h src/MEGlobal.h src/MEDebug.cpp)
+# add_executable(TestMakeEngine test_bin/main.cpp test_bin/Engine.h)
 
 target_link_libraries(TestMakeEngine MakeEngine)
 

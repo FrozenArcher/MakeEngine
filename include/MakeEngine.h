@@ -5,5 +5,5 @@
 #ifndef MAKEENGINE_MAKEENGINE_H
 #define MAKEENGINE_MAKEENGINE_H
 #include "../src/METime.h"
-#include "../src/debug.h"
+#include "../src/MEDebug.h"
 #endif //MAKEENGINE_MAKEENGINE_H

@@ -2,8 +2,8 @@
 // Created by fracher on 2021/6/5.
 //
 
-#ifndef MAKEENGINE_DEBUG_H
-#define MAKEENGINE_DEBUG_H
+#ifndef MAKEENGINE_MEDEBUG_H
+#define MAKEENGINE_MEDEBUG_H
 
 #ifdef ME_DEBUG_MODE
 #define _DEBUG
@@ -19,4 +19,4 @@ namespace MakeEngine {
 #define DBG_Log(message)
 #endif
 
-#endif //MAKEENGINE_DEBUG_H
+#endif //MAKEENGINE_MEDEBUG_H
