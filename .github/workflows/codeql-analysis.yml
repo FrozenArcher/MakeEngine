@@ -52,10 +52,10 @@ jobs:
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
     - name: Install Dependencies
       run: |
-       apt-get install libsdl2-dev
-       apt-get install libsd2-image-dev
-       apt-get install libsd2-ttf-dev
-       apt-get install libsd2-mixer-dev
+       sudo apt-get install libsdl2-dev
+       sudo apt-get install libsd2-image-dev
+       sudo apt-get install libsd2-ttf-dev
+       sudo apt-get install libsd2-mixer-dev
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
